@@ -1,7 +1,7 @@
 # listPurchases
  // список покупок в магаз
       
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         List<String> list = new ArrayList<>();
         while (true) {
             printMenu();
@@ -24,12 +24,18 @@
                         System.out.println("Ничего нельзя удалить");
                         break;
                     }
+
                     System.out.println("Выберите товар который хотите удалить");
                     printList(list);
                     choice = scanner.nextInt();
-                    list.remove(choice - 1);
-                    System.out.println("Товар удален");
-                    break;
+                    if (choice - 1 >= 0 && choice <= list.size()) {
+                        list.remove(choice - 1);
+                        System.out.println("Товар удален");
+                        break;
+                    } else {
+                        System.out.println("Неправильно ввод числа");
+                        break;
+                    }
                 case 4:
                     System.out.println("goodbye my lover");
                     return;
